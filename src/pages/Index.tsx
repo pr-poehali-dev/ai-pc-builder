@@ -255,11 +255,123 @@ const Index = () => {
       category: 'work'
     },
 
+    // Office builds (10)
+    {
+      id: 'office-executive',
+      title: 'Executive Office',
+      description: 'Премиум офисная станция для руководителей',
+      price: '₽89,999',
+      cpu: 'Intel i7-13700',
+      gpu: 'Intel UHD 770',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-manager',
+      title: 'Manager Pro',
+      description: 'Профессиональный офисный компьютер',
+      price: '₽54,999',
+      cpu: 'Intel i5-13400',
+      gpu: 'Intel UHD 730',
+      ram: '16GB DDR4',
+      storage: '512GB NVMe SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-accountant',
+      title: 'Accountant Station',
+      description: 'Для бухгалтерии и финансовых расчётов',
+      price: '₽42,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '512GB SSD + 1TB HDD',
+      category: 'office'
+    },
+    {
+      id: 'office-secretary',
+      title: 'Secretary Desk',
+      description: 'Компактное решение для секретарей',
+      price: '₽34,999',
+      cpu: 'Intel i3-13100',
+      gpu: 'Intel UHD 730',
+      ram: '8GB DDR4',
+      storage: '256GB SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-analyst',
+      title: 'Data Analyst',
+      description: 'Для работы с большими объёмами данных',
+      price: '₽67,999',
+      cpu: 'AMD Ryzen 7 5700G',
+      gpu: 'Integrated Radeon',
+      ram: '32GB DDR4',
+      storage: '1TB NVMe SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-hr',
+      title: 'HR Department',
+      description: 'Для отдела кадров и HR-задач',
+      price: '₽39,999',
+      cpu: 'Intel i5-12400',
+      gpu: 'Intel UHD 730',
+      ram: '16GB DDR4',
+      storage: '512GB SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-call-center',
+      title: 'Call Center',
+      description: 'Оптимизированный для колл-центров',
+      price: '₽27,999',
+      cpu: 'AMD Ryzen 3 5300G',
+      gpu: 'Integrated Radeon',
+      ram: '8GB DDR4',
+      storage: '256GB SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-multi-monitor',
+      title: 'Multi-Monitor Setup',
+      description: 'Поддержка до 4 мониторов',
+      price: '₽49,999',
+      cpu: 'Intel i5-13400',
+      gpu: 'Intel UHD 730',
+      ram: '16GB DDR4',
+      storage: '512GB NVMe SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-silent',
+      title: 'Silent Office',
+      description: 'Бесшумная работа в офисе',
+      price: '₽44,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '512GB SSD',
+      category: 'office'
+    },
+    {
+      id: 'office-reception',
+      title: 'Reception Desk',
+      description: 'Компьютер для стойки регистрации',
+      price: '₽32,999',
+      cpu: 'Intel i3-12100',
+      gpu: 'Intel UHD 730',
+      ram: '8GB DDR4',
+      storage: '256GB SSD',
+      category: 'office'
+    },
+
     // Budget builds (10)
     {
-      id: 'budget-office',
-      title: 'Office Build',
-      description: 'Базовый офисный компьютер',
+      id: 'budget-basic',
+      title: 'Basic Build',
+      description: 'Базовый домашний компьютер',
       price: '₽29,999',
       cpu: 'AMD Ryzen 5 5600G',
       gpu: 'Integrated Radeon',
@@ -470,58 +582,63 @@ const Index = () => {
           </div>
           
           <Tabs defaultValue="all" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-5 mb-8">
               <TabsTrigger value="all">Все</TabsTrigger>
               <TabsTrigger value="gaming">Игровые</TabsTrigger>
               <TabsTrigger value="work">Рабочие</TabsTrigger>
+              <TabsTrigger value="office">Офисные</TabsTrigger>
               <TabsTrigger value="budget">Бюджетные</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="all" className="space-y-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {preBuilds.map((build) => (
-                  <Card key={build.id} className="hover:shadow-xl transition-shadow cursor-pointer border-2 hover:border-blue-300">
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <CardTitle className="text-xl">{build.title}</CardTitle>
-                          <CardDescription className="mt-1">{build.description}</CardDescription>
+            {['all', 'gaming', 'work', 'office', 'budget'].map((category) => (
+              <TabsContent key={category} value={category} className="space-y-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {preBuilds
+                    .filter((build) => category === 'all' || build.category === category)
+                    .map((build) => (
+                    <Card key={build.id} className="hover:shadow-xl transition-shadow cursor-pointer border-2 hover:border-blue-300">
+                      <CardHeader>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <CardTitle className="text-xl">{build.title}</CardTitle>
+                            <CardDescription className="mt-1">{build.description}</CardDescription>
+                          </div>
+                          <Badge variant="secondary" className="capitalize">{build.category}</Badge>
                         </div>
-                        <Badge variant="secondary" className="capitalize">{build.category}</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3 mb-4">
-                        <div className="flex items-center space-x-2">
-                          <Icon name="Cpu" size={16} className="text-blue-600" />
-                          <span className="text-sm font-medium">{build.cpu}</span>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3 mb-4">
+                          <div className="flex items-center space-x-2">
+                            <Icon name="Cpu" size={16} className="text-blue-600" />
+                            <span className="text-sm font-medium">{build.cpu}</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Icon name="Zap" size={16} className="text-green-600" />
+                            <span className="text-sm font-medium">{build.gpu}</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Icon name="Memory" size={16} className="text-purple-600" />
+                            <span className="text-sm font-medium">{build.ram}</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Icon name="HardDrive" size={16} className="text-orange-600" />
+                            <span className="text-sm font-medium">{build.storage}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Icon name="Zap" size={16} className="text-green-600" />
-                          <span className="text-sm font-medium">{build.gpu}</span>
+                        
+                        <div className="flex justify-between items-center">
+                          <span className="text-2xl font-bold text-blue-600">{build.price}</span>
+                          <Button size="sm" variant="outline">
+                            <Icon name="Eye" size={16} className="mr-1" />
+                            Подробнее
+                          </Button>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Icon name="Memory" size={16} className="text-purple-600" />
-                          <span className="text-sm font-medium">{build.ram}</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Icon name="HardDrive" size={16} className="text-orange-600" />
-                          <span className="text-sm font-medium">{build.storage}</span>
-                        </div>
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <span className="text-2xl font-bold text-blue-600">{build.price}</span>
-                        <Button size="sm" variant="outline">
-                          <Icon name="Eye" size={16} className="mr-1" />
-                          Подробнее
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>
