@@ -582,56 +582,57 @@ const Index = () => {
           </div>
           
           <Tabs defaultValue="all" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-5 mb-8">
-              <TabsTrigger value="all">Все</TabsTrigger>
-              <TabsTrigger value="gaming">Игровые</TabsTrigger>
-              <TabsTrigger value="work">Рабочие</TabsTrigger>
-              <TabsTrigger value="office">Офисные</TabsTrigger>
-              <TabsTrigger value="budget">Бюджетные</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-5 mb-8 h-14">
+              <TabsTrigger value="all" className="text-lg font-semibold">Все</TabsTrigger>
+              <TabsTrigger value="gaming" className="text-lg font-semibold">Игровые</TabsTrigger>
+              <TabsTrigger value="work" className="text-lg font-semibold">Рабочие</TabsTrigger>
+              <TabsTrigger value="office" className="text-lg font-semibold">Офисные</TabsTrigger>
+              <TabsTrigger value="budget" className="text-lg font-semibold">Бюджетные</TabsTrigger>
             </TabsList>
             
             {['all', 'gaming', 'work', 'office', 'budget'].map((category) => (
               <TabsContent key={category} value={category} className="space-y-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-4">
                   {preBuilds
                     .filter((build) => category === 'all' || build.category === category)
                     .map((build) => (
-                    <Card key={build.id} className="hover:shadow-xl transition-shadow cursor-pointer border-2 hover:border-blue-300">
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <CardTitle className="text-xl">{build.title}</CardTitle>
-                            <CardDescription className="mt-1">{build.description}</CardDescription>
+                    <Card key={build.id} className="hover:shadow-lg transition-shadow cursor-pointer border hover:border-blue-300">
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-4 mb-2">
+                              <div>
+                                <h3 className="text-xl font-bold text-slate-800">{build.title}</h3>
+                                <p className="text-slate-600">{build.description}</p>
+                              </div>
+                              <Badge variant="secondary" className="capitalize">{build.category}</Badge>
+                            </div>
+                            <div className="flex items-center space-x-8 text-sm">
+                              <div className="flex items-center space-x-2">
+                                <Icon name="Cpu" size={16} className="text-blue-600" />
+                                <span className="font-medium">{build.cpu}</span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Icon name="Zap" size={16} className="text-green-600" />
+                                <span className="font-medium">{build.gpu}</span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Icon name="Memory" size={16} className="text-purple-600" />
+                                <span className="font-medium">{build.ram}</span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Icon name="HardDrive" size={16} className="text-orange-600" />
+                                <span className="font-medium">{build.storage}</span>
+                              </div>
+                            </div>
                           </div>
-                          <Badge variant="secondary" className="capitalize">{build.category}</Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3 mb-4">
-                          <div className="flex items-center space-x-2">
-                            <Icon name="Cpu" size={16} className="text-blue-600" />
-                            <span className="text-sm font-medium">{build.cpu}</span>
+                          <div className="flex items-center space-x-4">
+                            <span className="text-2xl font-bold text-blue-600">{build.price}</span>
+                            <Button size="sm" variant="outline">
+                              <Icon name="Eye" size={16} className="mr-1" />
+                              Подробнее
+                            </Button>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <Icon name="Zap" size={16} className="text-green-600" />
-                            <span className="text-sm font-medium">{build.gpu}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Icon name="Memory" size={16} className="text-purple-600" />
-                            <span className="text-sm font-medium">{build.ram}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Icon name="HardDrive" size={16} className="text-orange-600" />
-                            <span className="text-sm font-medium">{build.storage}</span>
-                          </div>
-                        </div>
-                        
-                        <div className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-blue-600">{build.price}</span>
-                          <Button size="sm" variant="outline">
-                            <Icon name="Eye" size={16} className="mr-1" />
-                            Подробнее
-                          </Button>
                         </div>
                       </CardContent>
                     </Card>
