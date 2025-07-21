@@ -31,37 +31,339 @@ const Index = () => {
   };
 
   const preBuilds = [
+    // Gaming builds (10)
+    {
+      id: 'gaming-ultimate',
+      title: 'Gaming Ultimate',
+      description: 'Топовая игровая сборка для 4K 144Hz',
+      price: '₽249,999',
+      cpu: 'Intel i9-14900K',
+      gpu: 'RTX 4090',
+      ram: '64GB DDR5',
+      storage: '2TB NVMe Gen5',
+      category: 'gaming'
+    },
     {
       id: 'gaming-pro',
       title: 'Gaming Pro',
       description: 'Высокопроизводительная сборка для игр в 4K',
-      price: '₽89,999',
+      price: '₽169,999',
       cpu: 'Intel i7-13700K',
-      gpu: 'RTX 4070 Ti',
+      gpu: 'RTX 4080 Super',
       ram: '32GB DDR5',
       storage: '1TB NVMe SSD',
       category: 'gaming'
     },
     {
-      id: 'workstation',
-      title: 'Workstation',
-      description: 'Профессиональная станция для работы',
-      price: '₽129,999',
-      cpu: 'AMD Ryzen 9 7900X',
+      id: 'gaming-enthusiast',
+      title: 'Gaming Enthusiast',
+      description: 'Премиум игровая сборка для киберспорта',
+      price: '₽134,999',
+      cpu: 'AMD Ryzen 7 7800X3D',
+      gpu: 'RTX 4070 Ti Super',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-performance',
+      title: 'Gaming Performance',
+      description: 'Отличная производительность в 1440p',
+      price: '₽99,999',
+      cpu: 'Intel i5-13600K',
+      gpu: 'RTX 4070',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-solid',
+      title: 'Gaming Solid',
+      description: 'Стабильный гейминг в высоких настройках',
+      price: '₽84,999',
+      cpu: 'AMD Ryzen 5 7600X',
+      gpu: 'RTX 4060 Ti',
+      ram: '16GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-mid',
+      title: 'Gaming Mid',
+      description: 'Средний класс для современных игр',
+      price: '₽69,999',
+      cpu: 'Intel i5-12600K',
+      gpu: 'RTX 4060',
+      ram: '16GB DDR4',
+      storage: '500GB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-esports',
+      title: 'Gaming Esports',
+      description: 'Специально для киберспортивных дисциплин',
+      price: '₽79,999',
+      cpu: 'AMD Ryzen 5 5600X',
+      gpu: 'RTX 4060 Ti',
+      ram: '16GB DDR4',
+      storage: '500GB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-streaming',
+      title: 'Gaming + Streaming',
+      description: 'Игры плюс стриминг без потери FPS',
+      price: '₽114,999',
+      cpu: 'AMD Ryzen 7 7700X',
+      gpu: 'RTX 4070',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-amd',
+      title: 'Gaming AMD Build',
+      description: 'Полная сборка на AMD компонентах',
+      price: '₽89,999',
+      cpu: 'AMD Ryzen 7 5700X',
+      gpu: 'RX 7700 XT',
+      ram: '32GB DDR4',
+      storage: '1TB NVMe SSD',
+      category: 'gaming'
+    },
+    {
+      id: 'gaming-compact',
+      title: 'Gaming Compact',
+      description: 'Компактная игровая сборка в Mini-ITX',
+      price: '₽94,999',
+      cpu: 'AMD Ryzen 5 7600X',
+      gpu: 'RTX 4060 Ti',
+      ram: '16GB DDR5',
+      storage: '500GB NVMe SSD',
+      category: 'gaming'
+    },
+
+    // Work builds (10)
+    {
+      id: 'workstation-ultimate',
+      title: 'Workstation Ultimate',
+      description: 'Максимальная производительность для профессионалов',
+      price: '₽349,999',
+      cpu: 'AMD Threadripper 7980X',
+      gpu: 'RTX 4090',
+      ram: '128GB DDR5',
+      storage: '4TB NVMe Gen5',
+      category: 'work'
+    },
+    {
+      id: 'workstation-pro',
+      title: 'Workstation Pro',
+      description: 'Профессиональная станция для рендеринга',
+      price: '₽189,999',
+      cpu: 'Intel i9-14900K',
       gpu: 'RTX 4080',
       ram: '64GB DDR5',
       storage: '2TB NVMe SSD',
       category: 'work'
     },
     {
-      id: 'budget',
-      title: 'Budget Build',
-      description: 'Оптимальное соотношение цена/качество',
-      price: '₽39,999',
-      cpu: 'AMD Ryzen 5 5600X',
-      gpu: 'RX 6600 XT',
+      id: 'workstation-creative',
+      title: 'Creative Workstation',
+      description: 'Для дизайнеров и видеомонтажёров',
+      price: '₽149,999',
+      cpu: 'AMD Ryzen 9 7900X',
+      gpu: 'RTX 4070 Ti',
+      ram: '64GB DDR5',
+      storage: '2TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-dev',
+      title: 'Developer Station',
+      description: 'Оптимизированная для разработки ПО',
+      price: '₽119,999',
+      cpu: 'Intel i7-13700K',
+      gpu: 'RTX 4060 Ti',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-data',
+      title: 'Data Science',
+      description: 'Анализ данных и машинное обучение',
+      price: '₽169,999',
+      cpu: 'AMD Ryzen 9 7900X',
+      gpu: 'RTX 4070 Ti',
+      ram: '64GB DDR5',
+      storage: '2TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-3d',
+      title: '3D Workstation',
+      description: '3D моделирование и анимация',
+      price: '₽199,999',
+      cpu: 'Intel i9-13900K',
+      gpu: 'RTX 4080',
+      ram: '64GB DDR5',
+      storage: '2TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-cad',
+      title: 'CAD Workstation',
+      description: 'Инженерное проектирование и CAD',
+      price: '₽139,999',
+      cpu: 'Intel i7-13700K',
+      gpu: 'RTX 4070',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-server',
+      title: 'Server Build',
+      description: 'Домашний сервер и виртуализация',
+      price: '₽89,999',
+      cpu: 'AMD Ryzen 7 5700X',
+      gpu: 'Integrated Graphics',
+      ram: '64GB DDR4',
+      storage: '4TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-audio',
+      title: 'Audio Workstation',
+      description: 'Студия звукозаписи и мастеринг',
+      price: '₽99,999',
+      cpu: 'Intel i7-13700K',
+      gpu: 'RTX 4060',
+      ram: '32GB DDR5',
+      storage: '2TB NVMe SSD',
+      category: 'work'
+    },
+    {
+      id: 'workstation-compact',
+      title: 'Compact Workstation',
+      description: 'Компактная рабочая станция',
+      price: '₽79,999',
+      cpu: 'AMD Ryzen 5 7600X',
+      gpu: 'RTX 4060',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe SSD',
+      category: 'work'
+    },
+
+    // Budget builds (10)
+    {
+      id: 'budget-office',
+      title: 'Office Build',
+      description: 'Базовый офисный компьютер',
+      price: '₽29,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '512GB SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-gaming',
+      title: 'Budget Gaming',
+      description: 'Доступный гейминг в 1080p',
+      price: '₽49,999',
+      cpu: 'AMD Ryzen 5 5500',
+      gpu: 'GTX 1660 Super',
       ram: '16GB DDR4',
       storage: '500GB NVMe SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-media',
+      title: 'Media Center',
+      description: 'Домашний медиацентр и просмотр фильмов',
+      price: '₽34,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '1TB HDD + 256GB SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-student',
+      title: 'Student Build',
+      description: 'Компьютер для учёбы и лёгких игр',
+      price: '₽39,999',
+      cpu: 'Intel i5-12400F',
+      gpu: 'GTX 1650',
+      ram: '16GB DDR4',
+      storage: '512GB NVMe SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-work',
+      title: 'Budget Work',
+      description: 'Рабочий компьютер для офисных задач',
+      price: '₽32,999',
+      cpu: 'AMD Ryzen 3 5300G',
+      gpu: 'Integrated Radeon',
+      ram: '8GB DDR4',
+      storage: '512GB SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-mini',
+      title: 'Mini Budget',
+      description: 'Компактный и экономичный',
+      price: '₽27,999',
+      cpu: 'Intel i3-12100',
+      gpu: 'Integrated UHD 730',
+      ram: '8GB DDR4',
+      storage: '256GB SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-upgrade',
+      title: 'Upgrade Ready',
+      description: 'С возможностью лёгкого апгрейда',
+      price: '₽42,999',
+      cpu: 'AMD Ryzen 5 5600',
+      gpu: 'RX 6500 XT',
+      ram: '16GB DDR4',
+      storage: '500GB NVMe SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-htpc',
+      title: 'HTPC Build',
+      description: 'Домашний кинотеатр',
+      price: '₽36,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '2TB HDD + 256GB SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-esports',
+      title: 'Budget Esports',
+      description: 'Киберспорт на бюджете',
+      price: '₽44,999',
+      cpu: 'Intel i5-12400F',
+      gpu: 'RX 6600',
+      ram: '16GB DDR4',
+      storage: '500GB NVMe SSD',
+      category: 'budget'
+    },
+    {
+      id: 'budget-silent',
+      title: 'Silent Budget',
+      description: 'Тихая бюджетная сборка',
+      price: '₽38,999',
+      cpu: 'AMD Ryzen 5 5600G',
+      gpu: 'Integrated Radeon',
+      ram: '16GB DDR4',
+      storage: '1TB NVMe SSD',
       category: 'budget'
     }
   ];
